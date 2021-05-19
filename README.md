@@ -1,1 +1,1 @@
-# Trybe
+# Repositório de Atividades Trybe
