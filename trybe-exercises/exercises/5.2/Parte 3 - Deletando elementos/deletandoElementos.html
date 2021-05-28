@@ -1,0 +1,38 @@
+<div id="paiDoPai">
+    <div id="pai">
+      <div id="primeiroFilho"></div>
+      <div id="elementoOndeVoceEsta">
+        <div id="primeiroFilhoDoFilho"></div>
+        <div id="segundoEUltimoFilhoDoFilho"></div>
+      </div>
+      Atenção!
+      <div id="terceiroFilho"></div>
+      <div id="quartoEUltimoFilho"></div>
+    </div>
+    <script>
+        // Selecionar paiDoPai
+        let paiDoPai = document.querySelector('#paiDoPai');
+
+        //Selecionar primeiro filho
+        let childPointer = paiDoPai.firstElementChild;
+        
+        // Percorrer os filhos
+        for (let index = childPointer; childPointer !== null; childPointer = childPointer.nextElementSibling) {
+            
+          // Remover filhos que não sejam pai, elementoOndeVoceEsta e primeiroFilhoDoFilho .
+            if (childPointer.id !== 'pai' && childPointer.id !== 'elementoOndeVoceEsta' && childPointer.id !== 'primeiroFilhoDoFilho') {
+                console.log(paiDoPai.removeChild(childPointer));
+ 
+            }
+        }
+        
+    </script>
+  </div>
+
+  <!--
+      Tarefas:
+
+    Remova todos os elementos filhos de paiDoPai exceto pai , elementoOndeVoceEsta e primeiroFilhoDoFilho . 
+
+
+  -->

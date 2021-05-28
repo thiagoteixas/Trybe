@@ -1,0 +1,55 @@
+<div id="paiDoPai">
+    <div id="pai">
+      <div id="primeiroFilho"></div>
+      <div id="elementoOndeVoceEsta">
+        <div id="primeiroFilhoDoFilho"></div>
+        <div id="segundoEUltimoFilhoDoFilho"></div>
+      </div>
+      Atenção!
+      <div id="terceiroFilho"></div>
+      <div id="quartoEUltimoFilho"></div>
+    </div>
+    <script>
+        let pai = document.querySelector('#pai');
+        let EOVE = document.querySelector('#elementoOndeVoceEsta');
+        let PFF = document.querySelector('#primeiroFilhoDoFilho');
+        let div = document.createElement('div');
+        let filho = document.createElement('div');
+        let filho2 = document.createElement('div');
+
+        div.className = 'IrmaoEOVE';
+        div.innerText = 'SOU IRMÃO';
+        filho.className = 'FilhoEOVE';
+        filho.innerText = 'Sou filho';
+        filho2.className = 'FilhoPFF';
+        filho2.innerText = 'Sou filho do filho do filho';
+
+        // Adicionando como irmao
+        pai.append(div);
+        console.log(div);
+
+        // Adicionando como filho
+        EOVE.append(filho);
+        console.log(filho);
+
+        // Filho para primeiro filho do filho
+        PFF.appendChild(filho2);
+        console.log(filho2);
+
+        // Acessando terceiroFilho
+        console.log(document.querySelector('.FilhoPFF').parentNode.parentNode.parentNode.childNodes[5]);
+
+    </script>
+  </div>
+
+  <!--
+      Tarefas:
+
+    
+    Crie um irmão para elementoOndeVoceEsta .
+    Crie um filho para elementoOndeVoceEsta .
+    Crie um filho para primeiroFilhoDoFilho .
+    A partir desse filho criado, acesse terceiroFilho .
+
+
+  -->
