@@ -10,20 +10,32 @@
       <div id="quartoEUltimoFilho"></div>
     </div>
     <script>
-        // Selecionar paiDoPai
-        let paiDoPai = document.querySelector('#paiDoPai');
+        // Selecionar Pai
+        let pai = document.querySelector('#pai');
 
         //Selecionar primeiro filho
-        let childPointer = paiDoPai.firstElementChild;
-        
-        // Percorrer os filhos
-        for (let index = childPointer; childPointer !== null; childPointer = childPointer.nextElementSibling) {
-            
+        let childPointer = pai.firstElementChild;
+        let counter = 0;
+
+        // Guardar próximo elemento para servir de 'CHECKPOINT' para quando childPointer for nulo
+        let nextElement = childPointer.nextElementSibling;
+
+        // Percorrer os filhos 
+        while (childPointer != null) {
           // Remover filhos que não sejam pai, elementoOndeVoceEsta e primeiroFilhoDoFilho .
-            if (childPointer.id !== 'pai' && childPointer.id !== 'elementoOndeVoceEsta' && childPointer.id !== 'primeiroFilhoDoFilho') {
-                console.log(paiDoPai.removeChild(childPointer));
- 
-            }
+          if (childPointer.id !== 'elementoOndeVoceEsta' && childPointer.id !== 'primeiroFilhoDoFilho') {
+                pai.removeChild(childPointer);
+          }          
+          // Se index === elementoOndeVoceEsta, remover segundo filho
+          else if (childPointer.id === 'elementoOndeVoceEsta') {
+            childPointer.removeChild(childPointer.lastElementChild);
+          }
+
+          //Child pointer pode estar nulo mesmo que não tenhamos terminado com as remoções, então usamos o 'CHECKPOINT'
+          childPointer = nextElement;
+          if (nextElement !== null) {
+            nextElement = nextElement.nextElementSibling;
+          } 
         }
         
     </script>
