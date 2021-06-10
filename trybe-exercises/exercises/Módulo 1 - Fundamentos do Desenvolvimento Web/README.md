@@ -15,3 +15,4 @@
 - 5.3 - JavaScript: Eventos
 - 5.4 - JavaScript: Web Storage
 - 6.1 - HTML & CSS: Forms
+- 6.2 - Bibliotecas JavaScript e Frameworks CSS
