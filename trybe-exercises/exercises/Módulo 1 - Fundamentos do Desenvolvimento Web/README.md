@@ -23,3 +23,4 @@
 - 7.2 - JavaScript ES6 - Objects
 - 7.3 - Testes unitários em JavaScript
 - 8.1 - JavaScript ES6 - Introdução a Higher Order Functions
+- 8.2 - JavaScript ES6 - Higher Order Functions - forEach, find, some, every, sort
