@@ -33,9 +33,9 @@ test('Testando a função somar', () => {
     expect(math.somar(2, 2)).toBe(4);
 });
 
-test('Testando a função dividir', () => {
-    math.dividir.mockReturnValue('10');
-    math.dividir
+// test('Testando a função dividir', () => {
+//     math.dividir.mockReturnValue('10');
+//     math.dividir
     
 
-})
+// })
