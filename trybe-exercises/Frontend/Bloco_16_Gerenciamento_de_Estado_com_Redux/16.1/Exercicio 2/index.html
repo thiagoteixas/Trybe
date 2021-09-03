@@ -22,11 +22,16 @@
       <p>Cidade: <span id="cidade-2">São Paulo</span></p>
     </div>
     <script>
-      const alterarDados = (nome, sobrenome) => {
-        type: 'CHANGE_STATE',
+      const alterarNome1 = (nome, sobrenome) => ({
+        type: 'CHANGE_ONE',
         nome,
         sobrenome,
-      };
+      });
+      const alterarSobrenome = (nome, sobrenome) => ({
+        type: 'CHANGE_TWO',
+        nome,
+        sobrenome,
+      });
 
       const ESTADO_INICIAL_1 = {
         nome: 'Rodrigo',
@@ -44,8 +49,13 @@
 
       const meuPrimeiroReducer = (state = ESTADO_INICIAL_1, action) => {
         switch (action.type) {
-          case 'CHANGE_STATE':
-            
+          case 'CHANGE_ONE':
+            console.log('ONE');
+            return {
+              ...state,
+              nome: action.nome,
+              sobrenome: action.sobrenome,
+            };
           default:
             return state;
         }
@@ -53,6 +63,13 @@
 
       const meuSegundoReducer = (state = ESTADO_INICIAL_2, action) => {
         switch (action.type) {
+          case 'CHANGE_TWO':
+            console.log('TWO');
+            return {
+              ...state,
+              nome: action.nome,
+              sobrenome: action.sobrenome,
+            };
           default:
             return state;
         }
@@ -63,6 +80,32 @@
         meuSegundoReducer});
       
       const store = Redux.createStore(reducerCombinado);
+
+      window.onload = () => {
+        console.log(store.getState());
+        setTimeout(() => {
+          //Seu dispatch vem aqui //
+          store.dispatch({
+            type: 'CHANGE_ONE',
+            nome: 'Thiago',
+            sobrenome: 'Teixeira Oliveira',
+          });
+          store.dispatch({
+            type: 'CHANGE_TWO',
+            nome: 'A',
+            sobrenome: 'B C',
+          });
+        }, 3000);
+      }
+
+      store.subscribe(() => {
+        const { meuPrimeiroReducer, meuSegundoReducer } = store.getState();
+        document.getElementById('nome-1').innerHTML = meuPrimeiroReducer.nome;
+        document.getElementById('sobrenome-1').innerHTML = meuPrimeiroReducer.sobrenome;
+
+        document.getElementById('nome-2').innerHTML = meuSegundoReducer.nome;
+        document.getElementById('sobrenome-2').innerHTML = meuSegundoReducer.sobrenome;
+      });
     </script>
   </body>
 </html>
